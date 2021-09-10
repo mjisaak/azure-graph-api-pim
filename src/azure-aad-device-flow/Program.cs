@@ -7,24 +7,21 @@ using System.Threading.Tasks;
 
 namespace azure_aad_device_flow
 {
+
     class Program
     {
         public class Options
         {
             [Option('c', "ClientId", Required = true, HelpText = "The client ID is the unique application (client) ID assigned to your app by Azure AD when the app was registered.")]
             public string ClientId { get; set; }
-
-            [Option('t', "TenantId", Required = true, HelpText = "The tenant ID of the Azure Active Directory (Azure AD) tenant, or its tenant domain name")]
-            public string TenantId { get; set; }
         }
 
-        // private const string ClientId = "cae4db4f-cb90-44cd-95ea-92c1d9d2f15b";
-        // private const string Authority = "https://login.microsoftonline.com/common";
+
         private static string[] scopes = new string[]
         {
             "RoleAssignmentSchedule.ReadWrite.Directory",
             "PrivilegedAccess.ReadWrite.AzureAD",
-            "PrivilegedAccess.Read.AzureAD"
+            "PrivilegedAccess.Read.AzureAD",
         };
 
         static async Task Main(string[] args)
